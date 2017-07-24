@@ -1,0 +1,4 @@
+# Generic rules
+.*
+!.gitignore
+
