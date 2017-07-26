@@ -91,7 +91,8 @@ merged into the RFC repository as a markdown file. At that point the RFC is
     convincing motivation, demonstrate understanding of the impact of the
     design, or are disingenuous about the drawbacks or alternatives tend to be
     poorly-received.
-  - Submit a pull request. As a pull request the RFC will receive design
+  - Submit a pull request. Maintainer of RFC repository will assign the RFC a
+    number. As a pull request the RFC will receive design
     feedback from the larger community, and the author should be prepared to
     revise it in response.
   - Build consensus and integrate feedback. RFCs that have broad support are
@@ -104,8 +105,30 @@ merged into the RFC repository as a markdown file. At that point the RFC is
     request, and leave a comment on the pull request explaining your changes.
     Specifically, do not squash or rebase commits after they are visible on the
     pull request.
-
-**TODO** Describe conditions for merging RFC after discussing
+    - At some point, maintainer of the RFC repository will propose a "motion for
+      final comment period" (FCP), along with a *disposition* for the RFC (merge,
+      close, or postpone).
+      - This step is taken when enough of the tradeoffs have been discussed that
+        the maintainers of related repositories are in a position to make a
+        decision. That does not require consensus amongst all participants in the
+        RFC thread (which is usually impossible). However, the argument supporting
+        the disposition on the RFC needs to have already been clearly articulated,
+        and there should not be a strong consensus *against* that position.
+        Maintainers of related repositories use their best judgment in taking this
+        step, and the FCP itself ensures there is ample time and notification for
+        stakeholders to push back if it is made prematurely.
+      - For RFCs with lengthy discussion, the motion to FCP is usually preceded by
+        a *summary comment* trying to lay out the current state of the discussion
+        and major tradeoffs/points of disagreement.
+      - Before actually entering FCP, *all* maintainers of related repositories
+        must sign off.
+    - The FCP lasts ten calendar days, so that it is open for at least 5 business
+      days. This way all
+      stakeholders have a chance to lodge any final objections before a decision
+      is reached.
+    - In most cases, the FCP period is quiet, and the RFC is either merged or
+      closed. However, sometimes substantial new arguments or ideas are raised,
+      the FCP is canceled, and the RFC goes back into development mode.
 
 ## The RFC life-cycle
 [The RFC life-cycle]: #the-rfc-life-cycle
@@ -141,6 +164,13 @@ While the RFC pull request is up, the shepherd may schedule meetings with the
 author and/or relevant stakeholders to discuss the issues in greater detail. In
 either case a summary from the meeting will be posted back to the RFC pull
 request.
+
+Maintainers of related repositories makes final decisions about RFCs after the
+benefits and drawbacks are well understood. These decisions can be made at any
+time, but the maintainers will regularly issue decisions. When a decision is made,
+the RFC pull request will either be merged or closed. In either case, if the
+reasoning is not clear from the discussion in thread, the maintainer of RFC
+repository will add a comment describing the rationale for the decision.
 
 ## Implementing an RFC
 [Implementing an RFC]: #implementing-an-rfc
