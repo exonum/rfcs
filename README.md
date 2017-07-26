@@ -34,9 +34,14 @@ in.
 You need to follow this process if you intend to make "substantial" changes to
 Exonum core or the RFC process itself. What constitutes a
 "substantial" change is evolving based on community norms and varies depending
-on what part of the ecosystem you are proposing to change.
+on what part of the ecosystem you are proposing to change, but may include the
+following.
 
-**TODO** Provide examples
+- API changes.
+- Architecture changes.
+- Adding new features.
+- Removing existing features.
+- Changing feature behavior.
 
 Some changes do not require an RFC:
 
