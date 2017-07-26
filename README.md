@@ -172,12 +172,18 @@ ever possibly consider making this change, as outlined in the RFC pull request,
 or some semi-obvious variation of it." (When the answer to the latter question
 is "no", then the appropriate response is to close the RFC, not postpone it.)
 
-### Help this is all too informal!
+## Help this is all too informal!
 [Help this is all too informal!]: #help-this-is-all-too-informal
 
 The process is intended to be as lightweight as reasonable for the present
 circumstances. As usual, we are trying to let the process be driven by
 consensus and community norms, not impose more structure than necessary.
+
+## License
+
+The Exonum RFCs are licensed under the Creative Commons Non-Commercial
+Share-Alike International License (version 4.0).
+See [LICENSE](LICENSE) for details.
 
 [RFC issue tracker]: https://github.com/exonum/rfcs/issues
 [RFC repository]:  https://github.com/exonum/rfcs
