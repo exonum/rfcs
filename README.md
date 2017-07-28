@@ -27,6 +27,7 @@ in.
   - [Implementing an RFC]
   - [RFC Postponement]
   - [Help this is all too informal!]
+  - [License]
 
 ## When you need to follow this process
 [When you need to follow this process]: #when-you-need-to-follow-this-process
@@ -215,10 +216,20 @@ circumstances. As usual, we are trying to let the process be driven by
 consensus and community norms, not impose more structure than necessary.
 
 ## License
+[License]: #license
 
-The Exonum RFCs are licensed under the Creative Commons Non-Commercial
-Share-Alike International License (version 4.0).
-See [LICENSE](LICENSE) for details.
+Licensed under either of
+
+* Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+* MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contributions
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.
 
 [RFC issue tracker]: https://github.com/exonum/rfcs/issues
 [RFC repository]: https://github.com/exonum/rfcs
