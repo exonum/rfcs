@@ -92,8 +92,7 @@ merged into the RFC repository as a markdown file. At that point the RFC is
     convincing motivation, demonstrate understanding of the impact of the
     design, or are disingenuous about the drawbacks or alternatives tend to be
     poorly-received.
-  - Submit a pull request. Maintainer of RFC repository will assign the RFC a
-    number. As a pull request the RFC will receive design
+  - Submit a pull request. As a pull request the RFC will receive design
     feedback from the larger community, and the author should be prepared to
     revise it in response.
   - Build consensus and integrate feedback. RFCs that have broad support are
@@ -130,6 +129,16 @@ merged into the RFC repository as a markdown file. At that point the RFC is
     - In most cases, the FCP period is quiet, and the RFC is either merged or
       closed. However, sometimes substantial new arguments or ideas are raised,
       the FCP is canceled, and the RFC goes back into development mode.
+  - Whomever merges the RFC should do the following:
+    - Assign an id, using the PR number of the RFC pull request. (If the RFC
+      has multiple pull requests associated with it, choose one PR number,
+      preferably the minimal one.)
+    - Add the file in the `text/` directory.
+    - Create a corresponding issue in the Exonum repository, which shall be
+      changed on the RFC implementing.
+    - Fill in the remaining metadata in the RFC header, including links for
+      the original pull request(s) and the newly created issue.
+    - Merge everything to the RFC repository.
 
 ## The RFC life-cycle
 [The RFC life-cycle]: #the-rfc-life-cycle
