@@ -37,11 +37,11 @@ Exonum core or the RFC process itself. What constitutes a
 on what part of the ecosystem you are proposing to change, but may include the
 following.
 
-- API changes.
-- Architecture changes.
-- Adding new features.
-- Removing existing features.
-- Changing feature behavior.
+  - Changes in the public interface of the `exonum` crate.
+  - Architecture changes.
+  - Adding new features.
+  - Removing existing features.
+  - Changing feature behavior.
 
 Some changes do not require an RFC:
 
@@ -165,7 +165,7 @@ author and/or relevant stakeholders to discuss the issues in greater detail. In
 either case a summary from the meeting will be posted back to the RFC pull
 request.
 
-Maintainers of related repositories makes final decisions about RFCs after the
+Maintainers of related repositories make final decisions about RFCs after the
 benefits and drawbacks are well understood. These decisions can be made at any
 time, but the maintainers will regularly issue decisions. When a decision is made,
 the RFC pull request will either be merged or closed. In either case, if the
@@ -221,5 +221,5 @@ Share-Alike International License (version 4.0).
 See [LICENSE](LICENSE) for details.
 
 [RFC issue tracker]: https://github.com/exonum/rfcs/issues
-[RFC repository]:  https://github.com/exonum/rfcs
+[RFC repository]: https://github.com/exonum/rfcs
 [Gitter]: https://gitter.im/exonum
