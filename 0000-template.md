@@ -25,7 +25,7 @@ corner-cases, and include examples of how the feature is used.
 [how-we-teach-this]: #how-we-teach-this
 
 What names and terminology work best for these concepts and why?
-How is this idea best presented—as a continuation of existing Exonum concepts,
+How is this idea best presented — as a continuation of existing Exonum concepts,
 or as a wholly new one?
 
 Would the acceptance of this proposal change how Exonum is presented to new users
@@ -34,7 +34,7 @@ How should this feature be introduced and taught to existing Exonum users?
 
 What additions or changes to the [Exonum documentation] does it entail?
 
-What would an outline of a new section in the documentation look like? What
+What would the outline of a new section in the documentation look like? What
 should the reader be able to understand by the end of the section in the
 documentation?
 
