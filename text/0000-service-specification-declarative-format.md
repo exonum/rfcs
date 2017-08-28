@@ -63,6 +63,9 @@ DB-related code (including corresponding structures, tables, and method to obtai
 a separate table element) must be generated according to parameters described in
 this section.
 
+Information about database structure must be available to light clients via
+blockchain.
+
 Methods for modifying the stored data should be implemented by user.
 
 #### [storage.structures]
