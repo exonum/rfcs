@@ -96,6 +96,10 @@ for invariants checking (e.g. amount of money on all accounts in the system).
 
 Service IDs, table IDs, and transaction IDs must be generated automatically.
 
+## Documentation
+
+Documentation comments must be generated along with the corresponding code.
+
 ## Example
 
 This example is based on **Cryptocurrency Tutorial: How to Create Services**.
@@ -166,7 +170,7 @@ parallel with TOML).
 # Unresolved questions
 [unresolved]: #unresolved-questions
 
-Functionality corresponding to verifying cryptographic evidence and performing
+Functionality corresponding to verifying cryptographic proofs and performing
 transactions is not covered by this RFC and must be implemented by the service
 creator.
 
