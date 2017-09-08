@@ -170,6 +170,13 @@ Why should we *not* do this?
 JSON or JSON can be considered as an alternative to TOML (or can be supported in
 parallel with TOML).
 
+Alternative IDLs:
+
+- **OpenAPI**  
+  Doesn't support generics. This makes describing table structures problematic.
+- **WSDL**  
+  An XML-based IDL so it is too verbose and not human readable.
+
 # Unresolved questions
 [unresolved]: #unresolved-questions
 
