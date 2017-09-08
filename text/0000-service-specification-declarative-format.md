@@ -6,7 +6,7 @@
 # Summary
 [summary]: #summary
 
-Propose a declarative format based on [TOML](toml). This format allows to reduce
+Propose a declarative format based on [YAML](yaml). This format allows to reduce
 the effort required to create custom services.
 
 # Motivation
@@ -29,19 +29,24 @@ In order to create a service one should describe following parameters:
 - [Storage](storage)
 - [API](api)
 
-### [configuration]
+### configuration
 
 Configuration parameters used by the service.
 
-#### [configuration.public]
+#### configuration.public
 
 Configuration parameters to be stored in the blockchain.
 
-#### [configuration.private]
+#### configuration.private
 
 Configuration parameters to be stored locally.
 
-### [transactions]
+### types
+
+Defines transaction messages and structures with their fields to be stored  with
+their fields.
+
+### transactions
 
 Transaction-related code (including corresponding transaction structures and
 templates of `verify` and `execute` methods) must be generated according to
@@ -49,7 +54,8 @@ parameters described in this section.
 
 #### Transaction Structures
 
-Defines transaction messages with their fields (including type and size).
+Transaction messages with their fields (including type) must be
+defined in the `types` section.
 
 #### Verification and Execution
 
@@ -57,7 +63,7 @@ Templates for `verify` and `execute` methods for each transaction type must be
 generated. User should fill in bodies of that methods to implement transaction
 logic.
 
-### [storage]
+### storage
 
 DB-related code (including corresponding structures, tables, and method to obtain
 a separate table element) must be generated according to parameters described in
@@ -68,16 +74,17 @@ blockchain.
 
 Methods for modifying the stored data should be implemented by user.
 
-#### [storage.structures]
+#### Structures
 
-Define structures with their fields (including type and size) to be stored.
+Structures to be stored with their fields (including type) must be defined in
+the `types` section.
 
-#### [storage.tables]
+#### Tables
 
 Defines tables (with table types and types of table contents) combining the
 aforementioned structures.
 
-### [api]
+### api
 
 API-related code (including corresponding data types and `wire` method) must be
 generated according to parameters described in this section.
@@ -107,50 +114,80 @@ Documentation comments must be generated along with the corresponding code.
 
 This example is based on **Cryptocurrency Tutorial: How to Create Services**.
 
-```toml
-[configuration]
+```YAML
+configuration: {}
 
-[transactions]
+types:
+  TxCreateWalletRequest:
+    type: struct
+    doc: |
+       `TxCreateWalletRequest` is used in `TxCreateWallet` transactions
+    fields:
+    - name: pub_key
+      type: PublicKey
+      doc: Owner's key
+    - name: name
+      type: string
+      doc: Owner's name
+  TxTransferRequest:
+    type: struct
+    doc: |
+       `TxTranferRequest` is used in `TxTransfer` transactions
+    fields:
+    - name: from
+      type: PublicKey
+      doc: Originator of the transaction
+    - name: to
+      type: PublicKey
+      doc: Recipient of funds
+    - name: amount
+      type: u64
+      doc: The amount of funds transferred in the transaction
+    - name: seed
+      type: u64
+      doc: >
+        Additional transaction ID to discriminate simultaneous transactions
+        with equal amounts
+  Wallet:
+    type: struct
+    doc: |
+       `Wallet` is used to save data in the storage
+    fields:
+      - name: pub_key
+        type: PublicKey
+        doc: Owner's key
+      - name: name
+        type: string
+        doc: Owner's name
+      - name: balance
+        type: u64
+        doc: Wallet balance
 
-[transactions.TxCreateWallet.pub_key]
-field_type = "&PublicKey"
-field_size = 32
-[transactions.TxCreateWallet.name]
-field_type = "&str"
-field_size = 8
+transactions:
+  TxCreateWallet:
+    messageId: 0
+    transport:
+    - type: http+json
+      method: post
+      endpoint: "{{basePath}}/v1/create"
+    requestType: TxCreateWalletRequest
+    doc: Creates new account
+  TxTransfer:
+    messageId: 1
+    transport:
+    - type: http+json
+      method: post
+      endpoint: "{{basePath}}/v1/transfer"
+    requestType: TxTransferRequest
+    doc: Transfers coins from one account to another
 
-[transactions.TxTransfer.from]
-field_type = "&PublicKey"
-field_size = 32
-[transactions.TxTransfer.to]
-field_type = "&PublicKey"
-field_size = 32
-[transactions.TxTransfer.amount]
-field_type = "u64"
-field_size = 8
-[transactions.TxTransfer.seed]
-field_type = "u64"
-field_size = 8
+storage:
+  Wallets:
+    type: MapIndex
+    key_type: PublicKey
+    value_type: Wallet
 
-[storage]
-
-[storage.structures.Wallet.pub_key]
-field_type = "&PublicKey"
-field_size = 32
-[storage.structures.Wallet.name]
-field_type = "&str"
-field_size = 8
-[storage.structures.Wallet.balance]
-field_type = "u64"
-field_size = 8
-
-[[storage.tables]]
-table_type = "MapIndex"
-key_type = "PublicKey"
-value_type = "Wallet"
-
-[api]
-
+api: {}
 ```
 
 # How We Teach This
@@ -167,8 +204,8 @@ Why should we *not* do this?
 # Alternatives
 [alternatives]: #alternatives
 
-JSON or JSON can be considered as an alternative to TOML (or can be supported in
-parallel with TOML).
+JSON/YAML/TOML use the same underlying data model and are interchangeable as
+serialization format.
 
 Alternative IDLs:
 
@@ -185,5 +222,5 @@ transactions is not covered by this RFC and must be implemented by the service
 creator.
 
 [create-service]: https://github.com/exonum/exonum-doc/blob/master/src/get-started/create-service.md
-[toml]: https://github.com/toml-lang/toml
+[yaml]: http://yaml.org/
 [wiki:dbc]: https://en.wikipedia.org/wiki/Design_by_contract
